@@ -1,0 +1,63 @@
+@Gateway_HostAddress = http://localhost:5000
+# Paste the accessToken returned by POST /api/tokens
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImp0aSI6IjZiOGZlN2E4LTFiZmEtNDM2NC1hMjZlLWZkOWI0YzIwNjU1ZCIsIm5iZiI6MTc5MTk3ODE3MSwiZXhwIjoxNzkxOTgxNzcxLCJpc3MiOiJOZW1ldHNjaGVjay5Vc2VyRGF0YUFjY2Vzc1NlcnZpY2UiLCJhdWQiOiJOZW1ldHNjaGVjay5BcGkifQ.jJ8LAhBrwHeOUuCoxBdtFRmL9ewi9Zfxo4-WaFYgAr0
+
+GET {{Gateway_HostAddress}}/health
+
+###
+
+GET {{Gateway_HostAddress}}/health/ready
+
+###
+
+POST {{Gateway_HostAddress}}/api/users
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="FirstName"
+
+John
+--boundary
+Content-Disposition: form-data; name="LastName"
+
+Doe
+--boundary
+Content-Disposition: form-data; name="Email"
+
+john.doe@example.com
+--boundary
+Content-Disposition: form-data; name="Password"
+
+Str0ng password
+--boundary--
+
+# Visual Studio .http files cannot embed binary files inside multipart parts.
+# To register with an image, use curl instead:
+# curl.exe -F FirstName=John -F LastName=Doe -F Email=john.doe@example.com -F "Password=Str0ng password" -F "Image=@cat.jpg;type=image/jpeg" http://localhost:5000/api/users
+
+###
+
+POST {{Gateway_HostAddress}}/api/tokens
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "Str0ng password"
+}
+
+###
+
+POST {{Gateway_HostAddress}}/api/dice-rolls
+Authorization: Bearer {{token}}
+
+###
+
+GET {{Gateway_HostAddress}}/api/dice-rolls?page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+###
+
+GET {{Gateway_HostAddress}}/api/dice-rolls?year=2026&month=10&day=13&sortBySum=Desc&sortByDate=Asc&page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+###

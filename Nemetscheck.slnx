@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/OperativeService/">
+    <Project Path="OperativeService/Nemetscheck.OperativeService.Domain/Nemetscheck.OperativeService.Domain.csproj" />
+    <Project Path="OperativeService/Nemetscheck.OperativeService.Infrastructure/Nemetscheck.OperativeService.Infrastructure.csproj" />
+    <Project Path="OperativeService/Nemetscheck.OperativeService/Nemetscheck.OperativeService.csproj" />
+  </Folder>
+  <Folder Name="/UserDataAccessService/">
+    <Project Path="UserDataAccessService/Nemetscheck.UserDataAccessService.Domain/Nemetscheck.UserDataAccessService.Domain.csproj" />
+    <Project Path="UserDataAccessService/Nemetscheck.UserDataAccessService.Infrastructure/Nemetscheck.UserDataAccessService.Infrastructure.csproj" />
+    <Project Path="UserDataAccessService/Nemetscheck.UserDataAccessService/Nemetscheck.UserDataAccessService.csproj" />
+  </Folder>
+  <Project Path="Nemetscheck.Gateway/Nemetscheck.Gateway.csproj" />
+  <Project Path="Nemetscheck.Shared/Nemetscheck.Shared.csproj" />
+</Solution>

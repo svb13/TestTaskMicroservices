@@ -1,0 +1,38 @@
+@Nemetscheck_HostAddress = http://localhost:5073
+
+POST {{Nemetscheck_HostAddress}}/api/users
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="FirstName"
+
+John
+--boundary
+Content-Disposition: form-data; name="LastName"
+
+Doe
+--boundary
+Content-Disposition: form-data; name="Email"
+
+john.doe@example3.com
+--boundary
+Content-Disposition: form-data; name="Password"
+
+Str0ng password
+--boundary--
+
+# Visual Studio .http files cannot embed binary files inside multipart parts.
+# To register with an image, use curl instead:
+curl.exe -F FirstName=John -F LastName=Doe -F Email=john.doe@example22.com -F "Password=Str0ng password" -F "Image=@cat.jpg;type=image/jpeg" https://localhost:7186/api/users
+
+###
+
+POST {{Nemetscheck_HostAddress}}/api/tokens
+Content-Type: application/json
+
+{
+  "email": "john.doe@example22.com",
+  "password": "Str0ng password"
+}
+
+###

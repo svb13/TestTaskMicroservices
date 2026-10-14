@@ -1,0 +1,17 @@
+@OperativeService_HostAddress = https://localhost:7123
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJqb2huLmRvZUBleGFtcGxlMjIuY29tIiwianRpIjoiZWZhNzBiYWMtZDU4NS00ZDk4LTk3MmItMGY4ZTE1N2YwMDBmIiwibmJmIjoxNzkxOTcwMDQyLCJleHAiOjE3OTE5NzM2NDIsImlzcyI6Ik5lbWV0c2NoZWNrLlVzZXJEYXRhQWNjZXNzU2VydmljZSIsImF1ZCI6Ik5lbWV0c2NoZWNrLkFwaSJ9.ifK4WkD4oB21wHOVoVWH4P2yBb1VX8GBhiOmmk-OUVo
+
+POST {{OperativeService_HostAddress}}/api/dice-rolls
+Authorization: Bearer {{token}}
+
+###
+
+GET {{OperativeService_HostAddress}}/api/dice-rolls?page=1&pageSize=20&sortByDate=Asc
+Authorization: Bearer {{token}}
+
+###
+
+GET {{OperativeService_HostAddress}}/api/dice-rolls?year=2026&month=10&day=14&sortBySum=Desc&sortByDate=Asc&page=1&pageSize=10
+Authorization: Bearer {{token}}
+
+###
